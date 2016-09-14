@@ -13,15 +13,6 @@ public class Spawn : MonoBehaviour {
 	public float spawnIntervalModifier = 0.95f;
 	public static int wave = 1;
 	public static int enemiesSpawned;
-	
-
-	void Start () {
-
-	}
-
-	void Update () {
-
-	}
 
 	IEnumerator spawnNext(){
 
@@ -30,7 +21,7 @@ public class Spawn : MonoBehaviour {
 		
 		for (int i = 0; i < spawnAmount; i++) {
 
-			if (waveCalc > 0 &&  enemiesSpawned == Mathf.FloorToInt(spawnAmount/2) ){
+			if (waveCalc > 0 && enemiesSpawned == Mathf.FloorToInt(spawnAmount/2) ){
 				Instantiate (monsterPrefabs [(int) Mathf.Ceil(difficulty - 1)], transform.position, Quaternion.identity);
 				waveCalc--;
 				enemiesSpawned++;
@@ -48,12 +39,12 @@ public class Spawn : MonoBehaviour {
 
 
 	public void waveMaker(){
-		int someKindOfName = wave % 10;
-		if (someKindOfName != 0){
-			if (someKindOfName % 3 == 0){
+		int Waveint = wave % 10;
+		if (Waveint != 0){
+			if (Waveint % 3 == 0){
 				spawnInterval *= spawnIntervalModifier;
 			}
-			else if (someKindOfName % 2 == 0) {
+			else if (Waveint % 2 == 0) {
 				difficulty *= difficultyModifier;
 			}
 			else {

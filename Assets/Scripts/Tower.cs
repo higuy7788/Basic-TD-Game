@@ -35,11 +35,11 @@ public class Tower : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider co){
-		if (co.GetComponent<Monster> () && co.transform == enemyListInTower[0].transform) 
-		{
-			enemyListInTower.RemoveAt(0);
+		for (int x = 0; x <= enemyListInTower.Count; x++) {
+			if (co.GetComponent<Monster> () && co.transform == enemyListInTower [x].transform) {
+				enemyListInTower.RemoveAt (x);
+			}
 		}
-
 	}
 
 	IEnumerator shoot(){
