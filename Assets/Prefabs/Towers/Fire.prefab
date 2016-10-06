@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3393130}
   - 23: {fileID: 2357476}
   - 135: {fileID: 13560858}
-  - 114: {fileID: 11415586}
+  - 114: {fileID: 114000014119783908}
   m_Layer: 2
   m_Name: Fire
   m_TagString: Untagged
@@ -68,22 +68,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146588}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11415586
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1066f339052674d82efdfe0d824d71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firing: 0
-  mon: {fileID: 0}
-  bulletPrefab: {fileID: 104236, guid: c6a35bcc976b22b42b17e2c0dd46405f, type: 2}
-  running: 1
-  enemyListInTower: []
 --- !u!135 &13560858
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -107,3 +91,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146588}
   m_IsPrefabParent: 1
+--- !u!114 &114000014119783908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6d0062301384023b190bf59ef357da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firing: 0
+  mon: {fileID: 0}
+  bulletPrefab: {fileID: 1000013921079746, guid: cfbe5f18451544ef491db17fe5486bd6,
+    type: 2}
+  running: 1
+  enemyListInTower: []

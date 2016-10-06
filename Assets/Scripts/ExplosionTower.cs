@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Tower : MonoBehaviour {
+public class ExplosionTower : MonoBehaviour {
 
 	public bool firing;
 	public Transform mon;
@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour {
 		ScoreManager.score -= 100;
 		StartCoroutine (shoot ());
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		transform.Rotate (Vector3.up * Time.deltaTime * 35, Space.World);
@@ -26,7 +26,7 @@ public class Tower : MonoBehaviour {
 			}
 		}
 	}
-	
+
 	void OnTriggerEnter(Collider co){
 		if (co.GetComponent<Monster> ())
 		{
@@ -46,8 +46,8 @@ public class Tower : MonoBehaviour {
 		while (running) { 
 			if (enemyListInTower.Count > 0){
 				GameObject b = (GameObject)Instantiate (bulletPrefab, transform.position, Quaternion.identity);
-				b.GetComponent<Bullet> ().target = enemyListInTower[0].transform;
-				yield return new WaitForSeconds (1.0f);
+				b.GetComponent<ExplosionBullet> ().target = enemyListInTower[0].transform;
+				yield return new WaitForSeconds (2.0f);
 			}
 			else
 			{
