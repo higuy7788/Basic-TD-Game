@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Health : MonoBehaviour {
 	TextMesh tm;
-	
+	public int health;
+
 	// Use this for initialization
 	void Start () {
 		tm = GetComponent<TextMesh>();
@@ -12,31 +13,16 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.forward = Camera.main.transform.forward;
-	}
-
-	public int current() {
-		return tm.text.Length;
+		tm.text = health.ToString ();
 	}
 
 	public void decrease() {
-		if (current() > 1)
-			tm.text = tm.text.Remove(tm.text.Length - 1);
-		else
-			Destroy(FindParentWithTag(this.gameObject, "Enemy"));
-	}
-
-	public static GameObject FindParentWithTag(GameObject childObject, string tag)
-	{
-		Transform t = childObject.transform;
-		while (t.parent != null)
-		{
-			if (t.parent.tag == tag)
-			{
-				return t.parent.gameObject;
-			}
-			t = t.parent.transform;
+		if (health > 1)
+			health -= 1;
+		else {
+			Destroy (this.gameObject);
+			OnDestroy ();
 		}
-		return null;
 	}
 
 	void OnDestroy (){
