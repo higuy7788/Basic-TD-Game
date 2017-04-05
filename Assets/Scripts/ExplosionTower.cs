@@ -13,7 +13,7 @@ public class ExplosionTower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ScoreManager.score -= 100;
+		ScoreManager.score -= 150;
 		StartCoroutine (shoot ());
 	}
 
@@ -42,16 +42,28 @@ public class ExplosionTower : MonoBehaviour {
 		}
 	}
 
+	GameObject closestEnemy(){
+		GameObject currentHigh = enemyListInTower [0];
+		for (int x = 0; x <= enemyListInTower.Count - 1; x++) {
+			if (Vector3.Distance(enemyListInTower [x].transform.position, this.transform.position) < Vector3.Distance(currentHigh.transform.position, this.transform.position)) {
+				currentHigh = enemyListInTower [x];
+			}
+			if (x == enemyListInTower.Count - 1)
+				return currentHigh;
+		}
+		return null;
+	}
+
 	IEnumerator shoot(){
 		while (running) { 
 			if (enemyListInTower.Count > 0){
 				GameObject b = (GameObject)Instantiate (bulletPrefab, transform.position, Quaternion.identity);
-				b.GetComponent<ExplosionBullet> ().target = enemyListInTower[0].transform;
+				b.GetComponent<ExplosionBullet> ().target = closestEnemy().transform;
 				yield return new WaitForSeconds (2.0f);
 			}
 			else
 			{
-				yield return new WaitForSeconds(0.1f);
+				yield return new WaitForSeconds(0.001f);
 			}
 		}
 	}

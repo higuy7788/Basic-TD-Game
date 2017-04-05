@@ -14,14 +14,19 @@ public class Health : MonoBehaviour {
 	void Update () {
 		transform.forward = Camera.main.transform.forward;
 		tm.text = health.ToString ();
+		if (health == 0) {
+			OnDestroy ();
+		}
 	}
 
 	public void decrease() {
-		if (health > 1)
+		if (health > 1){
 			health -= 1;
+		}
 		else {
-			Destroy (this.gameObject);
-			OnDestroy ();
+			health -= 1;
+			Destroy (transform.parent.gameObject);
+
 		}
 	}
 

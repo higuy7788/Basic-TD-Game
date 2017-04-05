@@ -12,7 +12,7 @@ public class Builplace : MonoBehaviour {
 	private bool beenClicked = false;
 
 	void OnMouseUpAsButton() {
-		if (!beenClicked && Spawn.enemiesSpawned == 0) {
+		if (!beenClicked) {
 
 			//Insantiates the towers to be spawned at locations
 			GameObject n = Instantiate(norm);

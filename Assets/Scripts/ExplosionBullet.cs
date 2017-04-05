@@ -6,6 +6,7 @@ public class ExplosionBullet : MonoBehaviour {
 
 	public float speed = 10f;
 	public Transform target;
+	public GameObject explode;
 	public List<GameObject> explosionRadius;
 
 	void Update(){
@@ -15,6 +16,7 @@ public class ExplosionBullet : MonoBehaviour {
 
 				if (x == explosionRadius.Count - 1) {
 					Destroy (gameObject);
+					Instantiate (explode, transform.position, Quaternion.identity);
 				}
 			}
 		}

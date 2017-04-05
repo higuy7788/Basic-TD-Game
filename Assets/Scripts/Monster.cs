@@ -4,13 +4,15 @@ using System.Collections;
 public class Monster : MonoBehaviour {
 
 	public float distanceTraveled;
+	public int targetsLeft;
 
 	private NavMeshAgent NMA;
 
 	// Use this for initialization
 	void Start () {
-
 		NMA = GetComponent<NavMeshAgent> ();
+
+		targetsLeft = GetComponentInChildren<Health> ().health;
 
 		GameObject castle = GameObject.Find("Castle");
 			if (castle)

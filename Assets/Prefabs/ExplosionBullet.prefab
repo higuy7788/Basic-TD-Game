@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013921079746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.529954, y: 4.63, z: -6.214368}
+  m_LocalPosition: {x: 12.8, y: 1.125, z: -7.5453243}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   target: {fileID: 0}
+  explode: {fileID: 1000013272263116, guid: a22d7eafdd7404cf6a941f077723d45d, type: 2}
   explosionRadius: []
 --- !u!135 &135000011191440068
 SphereCollider:

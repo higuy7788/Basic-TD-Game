@@ -44,14 +44,22 @@ public class Tower : MonoBehaviour {
 
 	IEnumerator shoot(){
 		while (running) { 
-			if (enemyListInTower.Count > 0){
+			if (enemyListInTower.Count > 0) {
 				GameObject b = (GameObject)Instantiate (bulletPrefab, transform.position, Quaternion.identity);
-				b.GetComponent<Bullet> ().target = enemyListInTower[0].transform;
+
+				for (int x = 0; x <= enemyListInTower.Count; x++) {
+					while (enemyListInTower [x].GetComponent<Monster> ().targetsLeft >= 1) {
+						b.GetComponent<Bullet> ().target = enemyListInTower [0].transform;
+						enemyListInTower [x].GetComponent<Monster> ().targetsLeft -= 1;
+						break;
+					}
+					break;
+				}
 				yield return new WaitForSeconds (1.0f);
 			}
 			else
 			{
-				yield return new WaitForSeconds(0.1f);
+				yield return new WaitForSeconds(0.001f);
 			}
 		}
 	}

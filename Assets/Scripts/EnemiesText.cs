@@ -14,7 +14,6 @@ public class EnemiesText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		enemyText.text =  Spawn.enemiesSpawned.ToString() + " Enemies";
+		enemyText.text =  Spawn.enemiesSpawned + " Enemies";
 	}
 }

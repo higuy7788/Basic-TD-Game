@@ -14,7 +14,6 @@ public class WaveManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		waveText.text = "Next Wave: " + Spawn.wave.ToString ();
+		waveText.text = "Current Wave: " + (Spawn.wave - 1).ToString ();
 	}
 }
